@@ -37,10 +37,13 @@ const UserController = {
    *      - application/json
    *    security:
    *      - masterKey: []
-   *    parameters:
-   *      - in: body
-   *        schema:
-   *          $ref: '#/definitions/CreateUserRequestBody'
+   *    requestBody:
+   *        name: user
+   *        description: The user to create
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/definitions/CreateUserRequestBody'
    *    responses:
    *      200:
    *        description: Successful operation
@@ -79,6 +82,52 @@ const UserController = {
     userService.createUser(req.body);
   },
 
+  /**
+   * @swagger
+   * /api/v1/user/login:
+   *  post:
+   *    tags: [User]
+   *    description: logs in user in the system by generating a token
+   *    produces:
+   *      - application/json
+   *    security:
+   *      - masterKey: []
+   *    requestBody:
+   *      content:
+   *        application/json:
+   *          schema:
+   *            type: object
+   *            required:
+   *              - email
+   *              - password
+   *            properties:
+   *              email:
+   *                type: string
+   *                example: some@info.com
+   *              password:
+   *                type: string
+   *                example: Testing@123
+   *    responses:
+   *      200:
+   *        description: Successful operation
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/definitions/CreateUserResponse'
+   *      401:
+   *        description: Unauthorized error
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/definitions/UnauthorizedErrorResponse'
+   *      500:
+   *        description: Something went wrong
+   *        content:
+   *          application/json:
+   *            schema:
+   *              type: object
+   *              $ref: '#/definitions/UnexpectedErrorResponse'
+   */
   login(req, res) {
     const { userService } = req.container.cradle;
     const { LOGIN_SUCCESS, INVALID_EMAIL, INVALID_PASSWORD, ERROR } =

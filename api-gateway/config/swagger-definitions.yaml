@@ -46,10 +46,6 @@ definitions:
         type: string
         description: User last name
         example: Doe
-      isEnabled:
-        type: boolean
-        description: Defines if user is enabled
-        example: true
   UnexpectedErrorResponse:
     properties:
       error:

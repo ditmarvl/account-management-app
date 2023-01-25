@@ -1,26 +1,5 @@
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
-// const fs = require("fs");
-// const path = require("path");
-
-// const getV1ControllersPath = () => {
-//   const baseControllerPath = "./../web/controllers";
-//   const controllersPath = path.join(__dirname, baseControllerPath);
-//   const directories = fs.readdirSync(controllersPath);
-//   const v1ControllerPaths = [];
-//   directories.forEach((d) => {
-//     const innerDir = `${controllersPath}/${d}`;
-//     const innerDirFiles = fs.readdirSync(innerDir);
-
-//     innerDirFiles.forEach((f) => {
-//       if (f.endsWith(".js") && !f.endsWith("V2.js")) {
-//         v1ControllerPaths.push(`${innerDir}/${f}`);
-//       }
-//     });
-//   });
-
-//   return v1ControllerPaths;
-// };
 
 const options = {
   definition: {

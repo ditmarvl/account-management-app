@@ -38,12 +38,6 @@ module.exports = ({
   }
 
   const apiV1Router = Router();
-  apiV1Router
-    .use(methodOverride("X-HTTP-Method-Override"))
-    .use(cors())
-    .use(json())
-    .use(compression())
-    .use(containerMiddleware);
 
   apiV1Router.use(
     "/user",
