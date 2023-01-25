@@ -1,0 +1,72 @@
+definitions:
+  CreateUserRequestBody:
+    type: object
+    required:
+      - email
+      - password
+      - firstName
+      - lastName
+    properties: 
+      email:
+        type: string
+        description: User email address
+        example: address@some.info
+      password:
+        type: string
+        description: User password
+        example: Testing123
+      firstName:
+        type: string
+        description: User first name
+        example: John
+      lastName:
+        type: string
+        description: User last name
+        example: Doe
+      isEnabled:
+        type: boolean
+        description: Defines if user is enabled
+        example: true
+  CreateUserResponse:
+    type: object
+    properties:
+      id: 
+        type: string
+        description: the object id of user
+        example: 63cf93dfb9a474672bedd8c3
+      email: 
+        type: string
+        description: the object id of user
+        example: address@some.info
+      firstName:
+        type: string
+        description: User first name
+        example: John
+      lastName:
+        type: string
+        description: User last name
+        example: Doe
+      isEnabled:
+        type: boolean
+        description: Defines if user is enabled
+        example: true
+  UnexpectedErrorResponse:
+    properties:
+      error:
+        type: string
+        description: Unexpected error message
+        example: Something went wrong
+      errorCode:
+        type: number
+        description: Error code
+        example: 500
+  UnauthorizedErrorResponse:
+    properties:
+      error:
+        type: string
+        description: Unauthorized error message
+        example: Unauthorized
+      errorCode:
+        type: number
+        description: Error code
+        example: 401
