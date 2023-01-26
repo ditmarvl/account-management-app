@@ -26,10 +26,6 @@ const AccountRepository = require("../repository/AccountRepository");
 // Mappers
 const AccountMapper = require("../mapper/AccountMapper");
 
-// Middlewares
-const JwtMiddleware = require("../web/middlewares/JwtMiddleware");
-const MasterApiKeyMiddleware = require("../web/middlewares/MasterApiKeyMiddleware");
-
 const errorHandler = require("../web/errors/ErrorHandler");
 const devErrorHandler = require("../web/errors/DevErrorHandler");
 
@@ -86,8 +82,6 @@ async function initApp() {
         // Middlewares
         container.register({
           metricsMiddleware: asValue(Metrics.getExpressMiddleware()),
-          jwtMiddleware: asValue(JwtMiddleware),
-          masterApiKeyMiddleware: asValue(MasterApiKeyMiddleware),
         });
 
         container.register({

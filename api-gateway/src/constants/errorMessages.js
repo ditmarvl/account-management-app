@@ -14,6 +14,9 @@ const CREATE_ACCOUNT_ERROR_MSG = "Something went wrong while creating account.";
 const CREATE_TRANSACTION_ERROR_MSG = "The transaction was not created";
 const RECEIVE_TRANSACTION_SUCCESS_ERROR_MSG =
   "The transaction was not received";
+const GET_ACCOUNT_ERROR_MSG = "Something went wrong while getting an account";
+const UNAUTHORIZED_ERROR_MSG = "Unauthorized request";
+const INVALID_TOKEN_ERROR_MSG = "Unauthorized request";
 
 module.exports = {
   ADD_USER_ERROR_MSG,
@@ -30,4 +33,7 @@ module.exports = {
   CREATE_ACCOUNT_ERROR_MSG,
   CREATE_TRANSACTION_ERROR_MSG,
   RECEIVE_TRANSACTION_SUCCESS_ERROR_MSG,
+  GET_ACCOUNT_ERROR_MSG,
+  UNAUTHORIZED_ERROR_MSG,
+  INVALID_TOKEN_ERROR_MSG,
 };

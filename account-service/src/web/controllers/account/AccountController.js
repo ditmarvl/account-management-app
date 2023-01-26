@@ -82,11 +82,17 @@ const AccountController = {
 
   getById(req, res) {
     const { accountService } = req.container.cradle;
-    const { GET_ACCOUNT_SUCCESS, ERROR } = accountService.outputs;
+    const { GET_ACCOUNT_SUCCESS, INVALID_INPUT, ERROR } =
+      accountService.outputs;
 
     accountService
       .once(GET_ACCOUNT_SUCCESS, (data) => {
         res.status(Status.CREATED).json(data);
+      })
+      .once(INVALID_INPUT, (data) => {
+        res
+          .status(Status.BAD_REQUEST)
+          .json({ error: data, errorCode: INVALID_INPUT_ERROR_CODE });
       })
       .once(ERROR, (data) => {
         res

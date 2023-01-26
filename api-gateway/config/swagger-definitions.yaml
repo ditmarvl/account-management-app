@@ -46,6 +46,29 @@ definitions:
         type: string
         description: User last name
         example: Doe
+  GetAccountResponse:
+    type: object
+    properties:
+      id: 
+        type: string
+        description: the object id of user
+        example: 63cf93dfb9a474672bedd8c3
+      iban: 
+        type: string
+        description: iban number
+        example: BGSTSA10BG131231231231
+      currency:
+        type: string
+        description: the currency of the account
+        example: BGN
+      isEnabled:
+        type: boolean
+        description: determines if the account is enabled
+        example: true
+      balance:
+        type: number
+        description: balance of the account
+        example: John
   UnexpectedErrorResponse:
     properties:
       error:
@@ -60,9 +83,7 @@ definitions:
     properties:
       error:
         type: string
-        description: Unauthorized error message
-        example: Unauthorized
+        example: Unauthorized request
       errorCode:
         type: number
-        description: Error code
-        example: 401
+        example: 1008

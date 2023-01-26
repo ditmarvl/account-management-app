@@ -18,6 +18,45 @@ const AccountController = {
     return router;
   },
 
+  /**
+   * @swagger
+   * /api/v1/account/{id}:
+   *  get:
+   *    tags: [Account]
+   *    description: returns account by id
+   *    produces:
+   *      - application/json
+   *    security:
+   *      - accessToken: []
+   *    parameters:
+   *      - in: path
+   *        name: id
+   *        schema:
+   *          type: string
+   *        required: true
+   *        description: Numeric identifier of the account to get
+   *        example: 63cf93dfb9a474672bedd8c3
+   *    responses:
+   *      200:
+   *        description: Successful operation
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/definitions/GetAccountResponse'
+   *      401:
+   *        description: Unauthorized error
+   *        content:
+   *          application/json:
+   *            schema:
+   *              $ref: '#/definitions/UnauthorizedErrorResponse'
+   *      500:
+   *        description: Something went wrong
+   *        content:
+   *          application/json:
+   *            schema:
+   *              type: object
+   *              $ref: '#/definitions/UnexpectedErrorResponse'
+   */
   getById(req, res) {
     const { accountService } = req.container.cradle;
     const { GET_ACCOUNT_SUCCESS, INVALID_INPUT, ACCOUNT_NOT_FOUND, ERROR } =

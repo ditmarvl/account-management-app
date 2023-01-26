@@ -9,7 +9,7 @@ module.exports = ({
   containerMiddleware,
   loggerMiddleware,
   jwtMiddleware,
-  masterApiKeyMiddleware,
+  apiKeyMiddleware,
   errorHandler,
   notFoundHandler,
   swagger,
@@ -39,11 +39,7 @@ module.exports = ({
 
   const apiV1Router = Router();
 
-  apiV1Router.use(
-    "/user",
-    masterApiKeyMiddleware,
-    controller("user/UserController")
-  );
+  apiV1Router.use("/user", apiKeyMiddleware, controller("user/UserController"));
   apiV1Router.use(
     "/account",
     jwtMiddleware,

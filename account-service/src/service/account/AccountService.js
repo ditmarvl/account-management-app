@@ -95,7 +95,10 @@ class AccountService extends Operation {
         return this.emit(USER_NOT_FOUND, USER_NOT_FOUND_ERROR_MSG);
       }
 
-      return this.emit(GET_ACCOUNT_SUCCESS, this.accountMapper.toDto(account));
+      return this.emit(
+        GET_ACCOUNT_SUCCESS,
+        account ? this.accountMapper.toDto(account) : {}
+      );
     } catch (error) {
       this.logger.error(GET_ACCOUNT_ERROR_MSG, {
         data: {

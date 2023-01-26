@@ -16,13 +16,13 @@ const options = {
     ],
     components: {
       securitySchemes: {
-        masterKey: {
+        apiKey: {
           type: "apiKey",
           in: "header",
           name: "x-api-key",
           description: "The master authentication key",
         },
-        apiKey: {
+        accessToken: {
           type: "apiKey",
           in: "header",
           name: "x-access-token",

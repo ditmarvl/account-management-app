@@ -30,7 +30,7 @@ const UserMapper = require("../mapper/UserMapper");
 
 // Middlewares
 const JwtMiddleware = require("../web/middlewares/JwtMiddleware");
-const MasterApiKeyMiddleware = require("../web/middlewares/MasterApiKeyMiddleware");
+const ApiKeyMiddleware = require("../web/middlewares/ApiKeyMiddleware");
 
 // Clients
 const CardClient = require("../clients/CardClient");
@@ -98,7 +98,7 @@ async function initApp() {
         container.register({
           metricsMiddleware: asValue(Metrics.getExpressMiddleware()),
           jwtMiddleware: asValue(JwtMiddleware),
-          masterApiKeyMiddleware: asValue(MasterApiKeyMiddleware),
+          apiKeyMiddleware: asValue(ApiKeyMiddleware),
         });
 
         // Clients

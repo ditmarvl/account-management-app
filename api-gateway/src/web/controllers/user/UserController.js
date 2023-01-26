@@ -36,7 +36,7 @@ const UserController = {
    *    produces:
    *      - application/json
    *    security:
-   *      - masterKey: []
+   *      - apiKey: []
    *    requestBody:
    *        name: user
    *        description: The user to create
@@ -91,7 +91,7 @@ const UserController = {
    *    produces:
    *      - application/json
    *    security:
-   *      - masterKey: []
+   *      - apiKey: []
    *    requestBody:
    *      content:
    *        application/json:
